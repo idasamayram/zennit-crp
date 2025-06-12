@@ -116,7 +116,8 @@ class CondAttribution:
 
         heatmap = data.grad.detach()
         heatmap = heatmap.to(on_device) if on_device else heatmap
-        return torch.sum(heatmap, dim=1)
+        # return torch.sum(heatmap, dim=1)
+        return heatmap.squeeze(0)
 
     def broadcast(self, data, conditions) -> Tuple[torch.Tensor, Dict]:
 
